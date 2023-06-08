@@ -1,3 +1,3 @@
-from .students import StudentViewSet
-from .courses import CourseViewSet
-from .enrolments import EnrolmentViewSet
+from .students import *
+from .courses import *
+from .enrolments import *
