@@ -1,3 +1,3 @@
-from .courses import CourseSerializer
-from .students import StudentSerializer
-from .enrolments import EnrolmentSerializer
+from .courses import *
+from .students import *
+from .enrolments import *
