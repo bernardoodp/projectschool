@@ -1,5 +1,5 @@
 from django.contrib import admin
-from escola.models import Student, Course
+from escola.models import Student, Course, Enrolment
 
 
 class Students(admin.ModelAdmin):
@@ -16,6 +16,12 @@ class Courses(admin.ModelAdmin):
     search_fields = ['code_course']
 
 admin.site.register(Course, Courses)
+
+class Enrolments(admin.ModelAdmin):
+    list_display = ('id', 'student', 'course', 'period')
+    list_display_links = ['id']
+
+admin.site.register(Enrolment, Enrolments)
 
 
 # Register your models here.
