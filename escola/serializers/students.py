@@ -9,15 +9,11 @@ class StudentSerializer(serializers.ModelSerializer):
         ]
 
 class StudentEnrolmentSerializer(serializers.ModelSerializer):
-    courses = serializers.SerializerMethodField(read_only=True)
+    courses = serializers.ReadOnlyField(source='course.description')
+    period = serializers.SerializerMethodField()
     class Meta:
         model = Enrolment
-        fields = ['courses', 'period']
+        fields = ['id','courses', 'period']
 
-    def get_courses(self, obj):
-        return {
-            'id': obj.course.id,
-            'code_course': obj.course.code_course,
-            'description': obj.course.description,
-            'level': obj.course.level
-        }
+    def get_period(self,obj):
+        return obj.get_period_display()

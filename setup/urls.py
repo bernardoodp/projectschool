@@ -19,6 +19,12 @@ STUDENTS.register(
     basename='students-enrolments',
     parents_query_lookups=['students']
 )
+COURSE.register(
+    'enrolments',
+    views.ListCourseEnrolmentsViewSet,
+    basename='courses-enrolments',
+    parents_query_lookups=['courses']
+)
 
 urlpatterns = [
     path('api/admin/', admin.site.urls),
