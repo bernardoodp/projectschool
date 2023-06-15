@@ -7,8 +7,6 @@ from rest_framework.permissions import IsAuthenticated
 class EnrolmentViewSet(viewsets.ModelViewSet):
     queryset = Enrolment.objects.all()
     serializer_class = EnrolmentSerializer
-    authentication_classes = [BasicAuthentication]
-    permission_classes = [IsAuthenticated]
 
     def get_serializer_class(self):
         if self.action == 'create':

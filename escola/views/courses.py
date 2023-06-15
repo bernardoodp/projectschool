@@ -8,12 +8,8 @@ from rest_framework.permissions import IsAuthenticated
 class CourseViewSet(viewsets.ModelViewSet):
     queryset = Course.objects.all()
     serializer_class = CourseSerializer
-    authentication_classes = [BasicAuthentication]
-    permission_classes = [IsAuthenticated]
 
 class ListCourseEnrolmentsViewSet(generics.ListAPIView, GenericViewSet):
-    authentication_classes = [BasicAuthentication]
-    permission_classes = [IsAuthenticated]
     serializer_class = ListCourseEnrolmentSerializer
 
     def get_queryset(self):
